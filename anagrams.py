@@ -36,9 +36,11 @@ def find_anagrams(words):
     anagrams = {}
     for word in words:
         # print(word) # annoyance last value
-        if alphabetize(word) in words:
-            pass
-        anagrams[alphabetize(word)] = [word]
+        if alphabetize(word) in anagrams:
+            anagrams[alphabetize(word)] = [
+                anagrams.get(alphabetize(word))[0], word]
+        else:
+            anagrams[alphabetize(word)] = [word]
 
     print(anagrams)
     return anagrams
